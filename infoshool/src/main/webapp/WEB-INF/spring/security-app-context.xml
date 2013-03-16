@@ -12,16 +12,29 @@
 <!--     </http> -->
 
 	
+<!-- 	<http use-expressions="true"> -->
+<!-- 		<intercept-url pattern="/login" access="permitAll" /> -->
+<!-- 		<intercept-url pattern="/logout" access="permitAll" /> -->
+<!-- 		<intercept-url pattern="/loginfailed" access="permitAll" /> -->
+<!-- 		<intercept-url pattern="/schoolrest/public/**" access="permitAll" /> -->
+<!-- 		<intercept-url pattern="/schoolrest/secure/**" access="isAuthenticated()" /> -->
+<!-- 		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" /> -->
+<!-- 		<intercept-url pattern="/secure/**" access="isAuthenticated()" /> -->
+<!-- 		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" /> -->
+<!-- 		<intercept-url pattern="/post.html"	access="hasAnyRole('supervisor','teller')" /> -->
+<!-- 		<intercept-url pattern="/**" access="denyAll" /> -->
+<!-- 		<form-login login-page="/login" default-target-url="/schoolrest/secure/getSchool/2" -->
+<!-- 			authentication-failure-url="/loginfailed" /> -->
+<!-- 		<logout logout-success-url="/logout" /> -->
+<!-- 	</http> -->
+	
 	<http use-expressions="true">
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/logout" access="permitAll" />
 		<intercept-url pattern="/loginfailed" access="permitAll" />
 		<intercept-url pattern="/schoolrest/public/**" access="permitAll" />
-		<intercept-url pattern="/schoolrest/secure/**" access="isAuthenticated()" />
-		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" />
-		<intercept-url pattern="/secure/**" access="isAuthenticated()" />
-		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" />
-		<intercept-url pattern="/post.html"	access="hasAnyRole('supervisor','teller')" />
+		<intercept-url pattern="/schoolrest/secure/**" access="isAuthenticated()" />		
+		<intercept-url pattern="/secure/**" access="isAuthenticated()" />		
 		<intercept-url pattern="/**" access="denyAll" />
 		<form-login login-page="/login" default-target-url="/schoolrest/secure/getSchool/2"
 			authentication-failure-url="/loginfailed" />
