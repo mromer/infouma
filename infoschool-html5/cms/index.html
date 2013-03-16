@@ -1,0 +1,35 @@
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.6.4.min.js" ></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
+<script type="text/javascript">
+
+var request = $.ajax({
+    type: 'POST',
+    url: 'http://localhost:8080/infoschool/j_spring_security_check',
+    data: { j_username: 'rod', j_password : 'koala' }
+});
+
+request.success(function(data, textStatus, jqXHR) {
+    //alert('success:' + data);
+	window.location.replace("editList.html");
+});
+
+request.error(function(jqXHR, textStatus, errorThrown) {
+   alert('error:' + errorThrown);
+});
+
+
+</script>
+
+<body>CMS
+
+</body>
+</html>
