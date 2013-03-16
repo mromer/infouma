@@ -14,4 +14,44 @@
 			<var>messages</var>
 		</resource-bundle>
 	</application>
+
+	<navigation-rule>
+		<from-view-id>/schoolList.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>toAdd</from-outcome>
+			<to-view-id>/schoolAdd.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>toEdit</from-outcome>
+			<to-view-id>/schoolEdit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>toDelete</from-outcome>
+			<to-view-id>/schoolDelete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/schoolAdd.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>toList</from-outcome>
+			<to-view-id>/schoolList.xhtml</to-view-id>
+		</navigation-case>		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/schoolEdit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>toList</from-outcome>
+			<to-view-id>/schoolList.xhtml</to-view-id>
+		</navigation-case>		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/schoolDelete.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>toList</from-outcome>
+			<to-view-id>/schoolList.xhtml</to-view-id>
+		</navigation-case>		
+	</navigation-rule>
 </faces-config>

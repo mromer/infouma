@@ -26,8 +26,10 @@
 				<t:inputFileUpload value="#{bean.uploadedFile}" />
 				
 				<h:commandButton
-				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/></div>
+				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/>
 
+				<h:link value="Cancel" outcome="index" >
+							
 		</h:form>
 
 	</ui:define>

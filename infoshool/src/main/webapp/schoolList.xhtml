@@ -9,26 +9,28 @@
 		<h1><h:outputText value="Hello From JSF" /></h1>
 		Message : #{homeBean.message}<br />
 		<br />
-		<h2>Schools</h2>
+		<h2>Schools List</h2>
+		
+		<h:link value="Add" outcome="toAdd" />
+		
+		
 		<table>
 			<ui:repeat value="#{schoolHome.schools}" var="v_school">
 				<tr>
 					<td>#{v_school.id}</td>
 					<td>#{v_school.description}</td>
+					<td>
+						<h:form>						
+						<h:commandButton action="#{schoolHome.editChargeSchool(v_school.id)}" value="Edit" />
+						</h:form>
+					</td>
+					<td>
+						<h:form><h:inputHidden value="#{v_school.id}" id="PARAM_ID"/>
+						<h:commandButton action="#{schoolHome.deleteChargeSchool(v_school.id)}" value="Delete" /></h:form>
+					</td>								
 				</tr>
 			</ui:repeat>
 		</table>
-
-		<h:form>
-			<div
-				style="border-top: 1px solid #d0d0d0; margin-top: 12px; padding-top: 12px">
-				<h:inputText value="#{schoolHome.school.description}" id="schoolDesc"/>
-				<t:inputFileUpload value="#{bean.uploadedFile}" />
-				
-				<h:commandButton
-				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/></div>
-
-		</h:form>
-
+		
 	</ui:define>
 </ui:composition>

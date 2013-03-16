@@ -7,17 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 public class School {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)	
 	private Long id;
 
-	@Column(length=48)
-	@NotEmpty
+	@Column(length=48)	
 	@Size(max=48)
 	private String description;
 	

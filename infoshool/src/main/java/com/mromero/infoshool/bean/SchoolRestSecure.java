@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mromero.infoshool.model.School;
 
 @Controller
-@RequestMapping("/schoolrest/public/**")
-public class SchoolRest {
+@RequestMapping("/schoolrest/secure/**")
+public class SchoolRestSecure {
 
-	private static final Logger logger = LoggerFactory.getLogger(SchoolRest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SchoolRestSecure.class);
 	
 	private List<School> schools;
 

@@ -9,7 +9,7 @@
 		<h1><h:outputText value="Hello From JSF" /></h1>
 		Message : #{homeBean.message}<br />
 		<br />
-		<h2>Schools</h2>
+		<h2>Schools Delete</h2>
 		<table>
 			<ui:repeat value="#{schoolHome.schools}" var="v_school">
 				<tr>
@@ -27,7 +27,8 @@
 				
 				<h:commandButton
 				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/></div>
-
+				
+				<h:link value="Cancel" outcome="toList" />
 		</h:form>
 
 	</ui:define>

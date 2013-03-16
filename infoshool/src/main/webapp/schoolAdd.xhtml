@@ -9,7 +9,7 @@
 		<h1><h:outputText value="Hello From JSF" /></h1>
 		Message : #{homeBean.message}<br />
 		<br />
-		<h2>Schools</h2>
+		<h2>School Add</h2>
 		<table>
 			<ui:repeat value="#{schoolHome.schools}" var="v_school">
 				<tr>
@@ -23,10 +23,13 @@
 			<div
 				style="border-top: 1px solid #d0d0d0; margin-top: 12px; padding-top: 12px">
 				<h:inputText value="#{schoolHome.school.description}" id="schoolDesc"/>
-				<t:inputFileUpload value="#{bean.uploadedFile}" />
+				
 				
 				<h:commandButton
-				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/></div>
+				action="#{schoolHome.saveSchool}" value="Add" /><h:message for="schoolDesc" style="color : red;padding-left : 8px"/>
+
+				<h:commandButton
+				action="#{schoolHome.addDeleteSchool}" value="Add" /></div>
 
 		</h:form>
 

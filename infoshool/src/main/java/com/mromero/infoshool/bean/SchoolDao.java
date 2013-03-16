@@ -22,6 +22,11 @@ public class SchoolDao {
 	}
 	
 	@Transactional
+	public void delete(School school) {		
+		entityManager.remove(school);
+	}
+	
+	@Transactional
 	public School getSchool(Long idSchool) {		
 		School school = (School) entityManager.createQuery(
 			    "from School where id = ?")
