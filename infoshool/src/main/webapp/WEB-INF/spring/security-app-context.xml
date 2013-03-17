@@ -28,6 +28,22 @@
 <!-- 		<logout logout-success-url="/logout" /> -->
 <!-- 	</http> -->
 	
+
+	<http  pattern="/schoolrest/**" use-expressions="true">
+		<intercept-url pattern="/schoolrest/login" access="permitAll" />
+		<intercept-url pattern="/schoolrest/logout" access="permitAll" />
+		<intercept-url pattern="/schoolrest/loginfailed" access="permitAll" />
+		<intercept-url pattern="/schoolrest/getstatus" access="permitAll" />
+		<intercept-url pattern="/schoolrest/welcome" access="isAuthenticated()" />
+		<intercept-url pattern="/schoolrest/public/**" access="permitAll" />
+		<intercept-url pattern="/schoolrest/secure/**" access="isAuthenticated()" />
+		<intercept-url pattern="/**" access="denyAll" />
+		<form-login login-processing-url="/schoolrest/j_spring_security_check" 
+			login-page="/schoolrest/login" default-target-url="/schoolrest/welcome"
+			authentication-failure-url="/schoolrest/loginfailed" />
+		<logout logout-success-url="/schoolrest/logout" />
+	</http>
+	
 	<http use-expressions="true">
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/logout" access="permitAll" />
