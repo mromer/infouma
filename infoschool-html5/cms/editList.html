@@ -4,31 +4,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="secure.js"></script>
+	src="config.js" ></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.6.4.min.js" ></script>
+<script type="text/javascript"
+	src="secure.js" ></script>
 <script type="text/javascript">
-	function doPostValidate() {
-		var request = $
-				.ajax({
-					type : 'POST',
-					url : 'http://localhost:8080/infoschool/schoolrest/secure/getSchools'
 
-				});
+function doPostValidate ()
+{
+  var request = $.ajax({
+    type: 'POST',
+    url: host + '/infoschool/schoolrest/secure/getSchools'
 
-		request.success(function(data, textStatus, jqXHR) {
-			alert('success:' + data[0].id);
-		});
+});
 
-		request.error(function(jqXHR, textStatus, errorThrown) {
-			alert('error2:' + errorThrown);
-		});
-	}
+request.success(function(data, textStatus, jqXHR) {
+    alert('success:' + data[0].id);	
+});
+
+request.error(function(jqXHR, textStatus, errorThrown) {
+   alert('error2:' + errorThrown);
+});
+}
+
+
+
 </script>
 
-<body>
-	Listado de facultades
+<body>Listado de facultades
 
-	<div id="result"></div>
+<div id="result"></div>
 
 </body>
 </html>
