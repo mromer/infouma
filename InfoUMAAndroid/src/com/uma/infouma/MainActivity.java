@@ -2,6 +2,8 @@ package com.uma.infouma;
 
 import java.net.URL;
 
+import com.google.android.gcm.GCMRegistrar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,7 +25,13 @@ public class MainActivity extends Activity
 		webview.setWebViewClient(new MyWebViewClient());
 		webview.getSettings().setJavaScriptEnabled(true);
 		webview.getSettings().setPluginsEnabled(true);
-		webview.loadUrl("http://192.168.1.104:8080/infoschool-html5/cms/index.html");
+		webview.loadUrl("http://192.168.0.114:8080/infoschool-html5/cms/index.html");
+		
+		//Comprobamos si está todo en orden para utilizar GCM
+        GCMRegistrar.checkDevice(MainActivity.this);
+        GCMRegistrar.checkManifest(MainActivity.this);
+        
+        GCMRegistrar.register(MainActivity.this, "964522623936");
 
 	}
 
@@ -32,7 +40,7 @@ public class MainActivity extends Activity
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			try {
 				URL urlObj = new URL(url);
-				if( TextUtils.equals(urlObj.getHost(),"192.168.1.104") ) {
+				if( TextUtils.equals(urlObj.getHost(),"192.168.0.114") ) {
 					//Allow the WebView in your application to do its thing
 					return false;
 				} else {
