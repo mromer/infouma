@@ -1,3 +1,9 @@
 Llamada al ws 
 http://localhost:8080/infoschool/schoolrest/public/getSchool/2
 http://localhost:8080/infoschool/schoolrest/secure/getSchool/2
+http://localhost:8080/infoschool/schoolrest/sendNotification/1
+http://192.168.0.114:8080/infoschool/schoolrest/sendNotification/1
+Librerias de terceros:
+
+mvn install:install-file -Dfile="C:\Users\Marco Romero\git\infouma-server\infoshool\libs\gcm-server-1.0.2.jar" 
+-DgroupId=gcm -DartifactId=gcm-server -Dversion=1.0.2 -Dpackaging=jar
