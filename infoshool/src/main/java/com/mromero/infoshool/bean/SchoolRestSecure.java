@@ -1,5 +1,6 @@
 package com.mromero.infoshool.bean;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.google.android.gcm.server.Constants;
 import com.google.android.gcm.server.Message;
@@ -52,12 +56,24 @@ public class SchoolRestSecure {
 		return school;
 	}
 
-	@RequestMapping("/addSchool/{schoolId}")
-	public @ResponseBody String addSchool(@PathVariable Long schoolId) {    
-		String result = "KO";
-
-
-		return result;
+	@RequestMapping("/addSchool")
+	public @ResponseBody String addSchool(@RequestParam(value = "file-0") FileUploadForm uploadForm) { 		
+		
+        List<MultipartFile> files = uploadForm.getFiles();
+ 
+        List<String> fileNames = new ArrayList<String>();
+         
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+ 
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                //Handle file content - multipartFile.getInputStream()
+ 
+            }
+        }      
+        
+		return "FIN addSchool";
 	}
 
 	@RequestMapping("/sendNotification/{schoolId}")
