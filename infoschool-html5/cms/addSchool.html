@@ -1,0 +1,79 @@
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="secure.js"></script>
+<script type="text/javascript">
+
+
+	function doPostValidate() {
+
+		$('#formLogin').submit(
+				function() {
+					var data = new FormData();
+					$.each($('#uploadFile').prop("files"), function(i, file) {
+						alert('paso 2 ' + i);
+						data.append('file-' + i, file);
+					});
+					alert('paso 3');
+					var request = $.ajax({
+						url : host + '/infoschool/schoolrest/secure/addSchool',
+						data : data,						
+						type : 'POST',
+						cache: false,
+						contentType: false,
+						processData: false,
+						success : function(data) {
+							$("#result")
+								.html(data.responseText);
+						},
+						error : function(data) {
+							$("#result")
+								.html(data.responseText);							
+						}
+					});
+					alert('paso 4');
+					request.success(function(data, textStatus, jqXHR) {
+						if (data == 'authenticated') {
+							window.location.replace("editList.html");
+						} else {
+							$("#errorlogin").html("Error en el login");
+						}
+
+					});
+
+					request.error(function(jqXHR, textStatus, errorThrown) {
+						$("#errorlogin")
+								.html(
+										"Error en el login, errorThrown:"
+												+ errorThrown);
+					});
+
+					return false;
+				});
+
+	}
+</script>
+
+<body>
+	Add School
+
+
+	<form id="formLogin">
+		Nombre facultad: <input type="text" id="facultad" /></br> 
+		Logo facultad: <input type="file" id="uploadFile"  /></br>
+		imaager: <input type="file" id="uploadFile"/></br>
+		<input type="submit"
+			value="Guardar" />
+	</form>
+
+
+
+	<div id="result"></div>
+
+</body>
+</html>

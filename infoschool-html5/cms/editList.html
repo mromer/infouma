@@ -26,11 +26,18 @@ request.success(function(data, textStatus, jqXHR) {
 request.error(function(jqXHR, textStatus, errorThrown) {
    alert('error2:' + errorThrown);
 });
+
+$('#addSchool').click(function() {
+    window.location.href = 'addSchool.html';
+    return false;
+});
 }
 
 
 
 </script>
+<button id="addSchool">Add School</button>
+
 
 <body>Listado de facultades
 
